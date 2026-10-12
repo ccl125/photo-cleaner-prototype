@@ -1,0 +1,22 @@
+
+== pair drift (768 -> 256 -> 128) ==
+threshold-0.93 classification flips across dims: 1
+  FLIP d4_unrelated x d5_unrelated: 0.8854 -> 0.9029 -> 0.9351
+perfect-separation status 768/256/128: True/True/True
+intra pairs with biggest 768->128 drop:
+  a1_base x a2_resize75: 0.9966 -> 0.9970 -> 0.9981 (+0.0015)
+  a2_resize75 x a3_jpeg35: 0.9946 -> 0.9955 -> 0.9968 (+0.0023)
+  a1_base x a3_jpeg35: 0.9941 -> 0.9949 -> 0.9966 (+0.0026)
+unrelated pairs with biggest 768->128 rise:
+  a2_resize75 x d1_unrelated: 0.6197 -> 0.6431 -> 0.8015 (+0.1819)
+  a1_base x d1_unrelated: 0.6213 -> 0.6431 -> 0.8019 (+0.1806)
+  a3_jpeg35 x d1_unrelated: 0.6243 -> 0.6461 -> 0.7994 (+0.1751)
+
+pair-score Kendall tau vs 768d: 256d=0.9294, 128d=0.7512
+
+== storage / search cost ==
+  768d: 1536 B/vec fp16 (15.4 MB per 10k photos), brute-force dot vs 10k lib: 354 us
+  256d: 512 B/vec fp16 (5.1 MB per 10k photos), brute-force dot vs 10k lib: 56 us
+  128d: 256 B/vec fp16 (2.6 MB per 10k photos), brute-force dot vs 10k lib: 48 us
+
+json written: /Users/cuichenglong/mayday/photo-cleaner-prototype/bench_results_mrl.json
