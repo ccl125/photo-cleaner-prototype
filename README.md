@@ -38,6 +38,14 @@ python bench_mrl.py                     # MRL 截断衰减验证
 - [google/embeddinggemma-2](https://huggingface.co/google/embeddinggemma-2)（Apache 2.0）
 - [FluidInference/embeddinggemma-2-coreml](https://huggingface.co/FluidInference/embeddinggemma-2-coreml)（Core ML 端口）
 
+## Roadmap
+
+- [x] macOS 端 Core ML 可行性验证（速度 / 相似度区分度）
+- [x] MRL 截断维度选型（推荐 256 维）
+- [ ] iOS 真机验证（PhotoKit + ANE，iPhone 13 Pro Max）
+- [ ] 真实相册数据上的阈值调优
+- [ ] 语义分类与自然语言搜图
+
 ## License
 
 Apache 2.0
